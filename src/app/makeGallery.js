@@ -4,6 +4,11 @@ export default function makeGallery(params){
     columns = params.columns,
     row = true,
     classList = 'picture ';
+    var residue = 0;
+
+  if(images.length>columns){
+    residue = images.length%columns;
+  }
 
   switch(columns){
     case 2:
@@ -44,6 +49,6 @@ export default function makeGallery(params){
   }
 
   return new Promise(function(resolve, reject) {
-    resolve(htmlStr);
+    resolve({htmlString: htmlStr, residue: residue, classList: classList});
   });
 }
