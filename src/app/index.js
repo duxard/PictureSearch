@@ -1,21 +1,17 @@
-import GoogleImages from 'google-images';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ImageResults from './ImageResults';
+import './css/main.css';
 
-const API_KEY = 'AIzaSyCyVMf4oJ9_YRn_ue3DrnWLLWOPlqDSaOU';
-const CSE_ID = '015311017377742702038:kouiw133nki';
+class App extends React.Component{
+  constructor(){
+    super();
+  }
+  render(){
+    return (
+        <ImageResults />
+    );
+  }
+}
 
-const client = new GoogleImages('015311017377742702038:kouiw133nki', 'AIzaSyCyVMf4oJ9_YRn_ue3DrnWLLWOPlqDSaOU');
-
-client.search('car').then(result => console.log(result)).catch(err => console.log(err));
-//client.search('flowers').then(result => console.log(result)).catch(err => console.log(err));
-
-
-// function googleImagesLoader(){
-//   var counter = 0;
-//   return function(){
-//     client.search('flowers',{start: counter}).then(result => console.log(result)).catch(err => console.log(err));
-//     counter += 10;
-//   }
-// }
-//
-// var getGoogleImages = googleImagesLoader();
-// getGoogleImages();
+ReactDOM.render(<App />, document.getElementById('wrapper') );
