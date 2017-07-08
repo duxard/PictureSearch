@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import makeGallery from './makeGallery';
 import GoogleImages from 'google-images';
+import { Link } from 'react-router-dom';
 
 const API_KEY = 'AIzaSyCyVMf4oJ9_YRn_ue3DrnWLLWOPlqDSaOU';
 const CSE_ID = '015311017377742702038:kouiw133nki';
@@ -23,10 +24,11 @@ function fillEmptyCells(params){
 }
 
 export default class ImageResults extends React.Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      columns: 4,
+      columns: this.props.paramsFromURL.match.params.cols,
+      searchigFor: this.props.paramsFromURL.match.params.term,
       start: 0,
       residue: 0,
       classList: ""
@@ -39,7 +41,7 @@ export default class ImageResults extends React.Component{
   }
 
   componentDidMount(){
-    client.search('flowers', {start: this.state.start})
+    client.search(this.state.searchigFor, {start: this.state.start})
       .then(result => {
         result = result.map(item => item.url);
         return {arr: result, columns: this.state.columns}
@@ -58,11 +60,16 @@ export default class ImageResults extends React.Component{
   }
 
   render(){
+    console.log(this.state.columns);
     return (
       <div>
-        <button onClick={this.loadMore}>More</button>
+        <div id="back">
+          <Link to="/" />
+        </div>
         <div id="container" ref={input => this.targetDiv = input}></div>
       </div>
     );
   }
 }
+//<button onClick={this.loadMore}>More</button>
+//<div id="container" ref={input => this.targetDiv = input}></div>

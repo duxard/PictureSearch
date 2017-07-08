@@ -1,10 +1,10 @@
 export default function makeGallery(params){
   var htmlStr = '',
-    images = params.arr,
-    columns = params.columns,
-    row = true,
-    classList = 'picture ';
-    var residue = 0;
+      images = params.arr,
+      columns = Number(params.columns),
+      row = true,
+      classList = 'picture ',
+      residue = 0;
 
   if(images.length>columns){
     residue = images.length%columns;
