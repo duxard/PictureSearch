@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "npm run build",
-    "build": "webpack -d &&  xcopy \"src/index.html\" \"dist/\" /F /Y && webpack-dev-server --content-base src/ --port 3400  --inline --hot --history-api-fallback",
+    "build": "webpack -d &&  xcopy \"src/index.html\" \"dist/\" /F /Y && xcopy \"src/app/jquery\" \"dist/app/jquery/\" /F /Y && webpack-dev-server --content-base src/ --port 3400  --inline --hot --history-api-fallback",
     "build:prod": "webpack -p && xcopy \"src/index.html\" \"dist/\" /F /Y"
   },
   "keywords": [],
