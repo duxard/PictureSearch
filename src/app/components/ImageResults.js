@@ -4,7 +4,7 @@ import makeGallery from './makeGallery';
 import GoogleImages from 'google-images';
 import { Link } from 'react-router-dom';
 
-const API_KEY = 'AIzaSyCyVMf4oJ9_YRn_ue3DrnWLLWOPlqDSaOU';
+const API_KEY = '';
 const CSE_ID = '015311017377742702038:kouiw133nki';
 const client = new GoogleImages(CSE_ID, API_KEY);
 
